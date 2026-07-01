@@ -1,21 +1,27 @@
-import 'dotenv/config'; // Esto reemplaza a require('dotenv').config()
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-// Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Ruta de prueba para verificar que el servidor vive
-app.get('/', (req, res) => {
-  res.send('El servidor está vivo y funcionando en la nube');
+// --- AÑADE ESTO: Servir archivos estáticos ---
+// Si tus archivos (index.html, app.js, style.css) están en una carpeta llamada 'public'
+// Ajusta 'public' al nombre de tu carpeta donde está el HTML.
+app.use(express.static(path.join(__dirname, '../public'))); 
+
+// Ruta API (la que usa tu fetch)
+app.post('/api/chat', async (req, res) => {
+    // Aquí va toda tu lógica de Gemini que ya tenías
+    // ...
 });
 
-// Configuración del puerto para Render o local
 const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Servidor activo en el puerto ${PORT}`);
 });
