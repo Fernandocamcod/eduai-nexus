@@ -1,17 +1,19 @@
-require('dotenv').config(); // Carga tus variables de entorno desde el archivo .env
-const express = require('express');
-const cors = require('cors');
+import 'dotenv/config'; // Esto reemplaza a require('dotenv').config()
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 
-// Middlewares básicos
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Aquí irían tus rutas, por ejemplo:
-// app.use('/api', tutorRoutes);
+// Ruta de prueba para verificar que el servidor vive
+app.get('/', (req, res) => {
+  res.send('El servidor está vivo y funcionando en la nube');
+});
 
-// --- CONFIGURACIÓN DEL PUERTO (La parte que necesitabas) ---
+// Configuración del puerto para Render o local
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
