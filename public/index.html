@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAI Nexus - Tutor de Mecatrónica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="nexus-container">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <i class="fa-solid fa-microchip network-icon"></i>
+                <h2>EDUAI<span>NEXUS</span></h2>
+            </div>
+            <p class="app-description">
+                Tu tutor socrático de programación, robótica e IoT. Presenta tus dudas de código o circuitos y aprende paso a paso.
+            </p>
+            <div class="status-panel">
+                <div class="status-item">
+                    <span class="status-dot online"></span>
+                    <p>Servidor: <strong>En línea</strong></p>
+                </div>
+                <div class="status-item">
+                    <i class="fa-solid fa-brain"></i>
+                    <p>Modelo: <strong>Gemini 2.5 Flash</strong></p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <header class="chat-header">
+                <div class="tutor-info">
+                    <h3>🤖 Tutor Socrático Virtual</h3>
+                    <p>Orientación en Mecatrónica, Arduino, ESP32 y desarrollo web</p>
+                </div>
+            </header>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message assistant-message">
+                    ¡Hola! Soy tu tutor virtual. ¿En qué proyecto de robótica, código o circuito electrónico estás trabajando hoy? Cuéntame tu idea o compíleme el error que estás experimentando para resolverlo juntos.
+                </div>
+            </div>
+
+            <footer class="chat-input-area">
+                <form id="chatForm" class="input-form">
+                    <input 
+                        type="text" 
+                        id="userInput" 
+                        placeholder="Escribe tu duda técnica o pega tu código aquí..." 
+                        autocomplete="off" 
+                        required
+                    >
+                    <button type="submit" id="sendBtn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
